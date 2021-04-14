@@ -5,6 +5,9 @@
  * The routes and redirects are defined in this file.
  */
 import Bootstrap from '../views/Boostrap/Index.vue'
+import Form from '../views/Form/Index.vue'
+
+
 export default [
     // Home
     // {
@@ -58,7 +61,10 @@ export default [
         path : '/bootstrap',
         component: Bootstrap
     },
-  
+    {
+        path : '/form',
+        component: Form
+    },
     // {
     //   path: '/',
     //   redirect: '/home',
