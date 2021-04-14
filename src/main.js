@@ -3,6 +3,17 @@ import App from './App.vue'
 
 Vue.config.productionTip = false
 
+/* ============
+ * Plugins
+ * ============
+ *
+ * Import and bootstrap the plugins.
+ */
+
+import { router } from './plugins/vue-router';
+
+
 new Vue({
   render: h => h(App),
+  router
 }).$mount('#app')
