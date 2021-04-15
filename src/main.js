@@ -11,6 +11,7 @@ Vue.config.productionTip = false
  */
 
 import './plugins/vue-highlight';
+import './plugins/vue-bootstrap';
 import { router } from './plugins/vue-router';
 
 
