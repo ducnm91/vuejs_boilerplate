@@ -1,36 +1,54 @@
 <template>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <router-link to="/bootstrap" class="nav-link active">Bootstrap</router-link>
-              </li>
-              <li class="nav-item">
-                <router-link to="/form" class="nav-link">Form</router-link>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <b-navbar toggleable="lg" type="dark" variant="info">
+        <b-navbar-brand href="#">NavBar</b-navbar-brand>
+
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+        <b-collapse id="nav-collapse" is-nav>
+          <b-navbar-nav>
+            <b-nav-item to="/bootstrap">Bootstrap</b-nav-item>
+            <b-nav-item to="/form" >Form</b-nav-item>
+            
+          </b-navbar-nav>
+
+          <!-- Right aligned nav items -->
+          <b-navbar-nav class="ml-auto">
+            <b-nav-form>
+              <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
+              <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+            </b-nav-form>
+
+            <b-nav-item-dropdown text="Lang" right>
+              <b-dropdown-item href="#" @click="changeLanguage('en')">EN</b-dropdown-item>
+              <b-dropdown-item href="#" @click="changeLanguage('nl')">JP</b-dropdown-item>
+            </b-nav-item-dropdown>
+
+            <b-nav-text>{{ $t("general.welcome") }}</b-nav-text>
+          </b-navbar-nav>
+        </b-collapse>
+      </b-navbar>
     </header>
 </template>
+<style lang="scss">
+  .navbar-dark .navbar-nav {
+    .nav-link {
+      &.router-link-active {
+        color: #fff;
+        &:focus,
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+</style>
+<script>
+export default {
+  methods: {
+    changeLanguage(lang) {
+      this.$i18n.locale = lang
+    }
+  }
+}
+</script>

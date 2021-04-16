@@ -13,9 +13,11 @@ Vue.config.productionTip = false
 import './plugins/vue-highlight';
 import './plugins/vue-bootstrap';
 import { router } from './plugins/vue-router';
+import i18n from './plugins/vue-i18n'
 
 
 new Vue({
   render: h => h(App),
-  router
+  router,
+  i18n
 }).$mount('#app')
