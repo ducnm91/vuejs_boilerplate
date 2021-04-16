@@ -16,7 +16,9 @@
 </template>
 <script>
   import Vue from 'vue';
+  import myMixin from '../../mixins/test';
   export default {
+    mixins: [myMixin],
     data() {
       return {
         dismissSecs: 10,
