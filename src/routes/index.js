@@ -4,8 +4,11 @@
  *
  * The routes and redirects are defined in this file.
  */
-import Bootstrap from '../views/Boostrap/Index.vue'
-import Form from '../views/Form/Index.vue'
+import Bootstrap from '../views/Boostrap/Index.vue';
+import Form from '../views/Form/Index.vue';
+
+import PublicLayout from '../layouts/Public.vue';
+import DashboardLayout from '../layouts/Dashboard.vue';
 
 
 export default [
@@ -65,10 +68,30 @@ export default [
         path : '/form',
         component: Form
     },
-    // {
-    //   path: '/',
-    //   redirect: '/home',
-    // },
+    {
+        path: '/layout-1',
+        component: PublicLayout,
+        children: [
+          {
+            path: '',
+            component: Bootstrap,
+          },
+        ],
+    },
+    {
+        path: '/layout-2',
+        component: DashboardLayout,
+        children: [
+          {
+            path: '',
+            component: Form,
+          },
+        ],
+    },
+    {
+      path: '/',
+      redirect: '/public',
+    },
   
     // {
     //   path: '/*',

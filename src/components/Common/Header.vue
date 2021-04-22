@@ -9,7 +9,8 @@
           <b-navbar-nav>
             <b-nav-item to="/bootstrap">Bootstrap</b-nav-item>
             <b-nav-item to="/form" >Form</b-nav-item>
-            
+            <b-nav-item to="/layout-1" >layout 1</b-nav-item>
+            <b-nav-item to="/layout-2" >layout 2</b-nav-item>
           </b-navbar-nav>
 
           <!-- Right aligned nav items -->
