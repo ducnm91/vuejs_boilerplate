@@ -7,6 +7,7 @@
 import Bootstrap from '../views/Boostrap/Index.vue';
 import Form from '../views/Form/Index.vue';
 import NotFound from '../views/404/Index.vue';
+import RouterDoc from '../views/Router/Index.vue';
 
 import PublicLayout from '../layouts/Public.vue';
 import DashboardLayout from '../layouts/Dashboard.vue';
@@ -63,11 +64,16 @@ export default [
 
     {
         path : '/bootstrap',
+        name: 'bootstrap',
         component: Bootstrap
     },
     {
         path : '/form',
         component: Form
+    },
+    {
+        path : '/router-doc',
+        component: RouterDoc
     },
     {
         path: '/layout-1',
