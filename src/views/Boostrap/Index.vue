@@ -11,13 +11,20 @@
                 header
             </template>
         </b-modal>
-        <!-- <img :src="urlImg" class="img-fluid" /> -->
+        <ul class="list-unstyled">
+          <li v-for="(post, index) in posts" :key="index">
+            <div class="card">
+              <!-- <img :src="post.postThumbnail" class="card-img-top" alt="..."> -->
+              <div class="card-body">
+                <h5 class="card-title">{{ post.postTitle }}</h5>
+              </div>
+            </div>
+          </li>
+        </ul>
     </div>
 </template>
 <script>
   import myMixin from '../../mixins/test';
-  import Repository from '../../repositories/RepositoryFactory';
-  const PostRepository = Repository.get("posts");
 
   export default {
     mixins: [myMixin],
@@ -28,6 +35,11 @@
         showDismissibleAlert: false,
         modalShow: false,
         urlImg: ''
+      }
+    },
+    computed: {
+      posts () {
+        return this.$store.state.post.list
       }
     },
     mounted() {
@@ -44,20 +56,8 @@
           this.$bvModal.show('modal-1')
       },
       getPosts() {
-        PostRepository.get().then((r) => {
-          console.log(r)
-        }).catch(function (error) {
-          console.log(error);
-        })
-        .then(function () {
-          // always executed
-        })
+        this.$store.dispatch('post/get')
       }
-    },
-    watch: {
-        modalShow(v) {
-            console.log(v)
-        }
     }
   }
 </script>
