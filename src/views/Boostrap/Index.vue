@@ -11,12 +11,14 @@
                 header
             </template>
         </b-modal>
-        <img :src="urlImg" class="img-fluid" />
+        <!-- <img :src="urlImg" class="img-fluid" /> -->
     </div>
 </template>
 <script>
-  import Vue from 'vue';
   import myMixin from '../../mixins/test';
+  import Repository from '../../repositories/RepositoryFactory';
+  const PostRepository = Repository.get("posts");
+
   export default {
     mixins: [myMixin],
     data() {
@@ -29,15 +31,7 @@
       }
     },
     mounted() {
-      Vue.$http.get('https://thatcopy.pw/catapi/rest/').then((r) => {
-        console.log(r)
-        this.urlImg = r.data.url
-      }).catch(function (error) {
-        console.log(error);
-      })
-      .then(function () {
-        // always executed
-      }); 
+      this.getPosts()
     },
     methods: {
       countDownChanged(dismissCountDown) {
@@ -48,6 +42,16 @@
       },
       showModal() {
           this.$bvModal.show('modal-1')
+      },
+      getPosts() {
+        PostRepository.get().then((r) => {
+          console.log(r)
+        }).catch(function (error) {
+          console.log(error);
+        })
+        .then(function () {
+          // always executed
+        })
       }
     },
     watch: {

@@ -14,7 +14,6 @@ import './plugins/vue-highlight';
 import './plugins/vue-bootstrap';
 import { router } from './plugins/vue-router';
 import i18n from './plugins/vue-i18n';
-import './plugins/axios';
 
 
 
