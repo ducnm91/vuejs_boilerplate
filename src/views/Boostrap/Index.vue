@@ -11,7 +11,8 @@
                 header
             </template>
         </b-modal>
-        <ul class="list-unstyled">
+        <p v-if="loading">Loading...</p>
+        <ul class="list-unstyled" v-if="!loading && postLength">
           <li v-for="(post, index) in posts" :key="index">
             <div class="card">
               <!-- <img :src="post.postThumbnail" class="card-img-top" alt="..."> -->
@@ -21,10 +22,12 @@
             </div>
           </li>
         </ul>
+        <p v-if="!loading && !postLength">No data</p>
     </div>
 </template>
 <script>
   import myMixin from '../../mixins/test';
+  import { mapState, mapGetters } from 'vuex';
 
   export default {
     mixins: [myMixin],
@@ -37,13 +40,43 @@
         urlImg: ''
       }
     },
+    // computed: {
+    //   posts () {
+    //     return this.$store.state.post.list
+    //   }
+    // },
     computed: {
-      posts () {
-        return this.$store.state.post.list
-      }
+      ...mapState({
+        loading: state => state.post.loading,
+        posts: state => state.post.list,
+
+        // arrow functions can make the code very succinct!
+        // count: state => state.count,
+
+        // passing the string value 'count' is same as `state => state.count`
+        // countAlias: 'count',
+
+        // to access local state with `this`, a normal function must be used
+        // countPlusLocalState (state) {
+        //   return state.count + this.localCount
+        // }
+      }),
+      ...mapGetters({
+        postLength: 'post/postLength'
+      }),
+      // postLength() {
+      //     return this.$store.getters['post/postLength'];
+      // }
     },
     mounted() {
       this.getPosts()
+    },
+    watch: {
+      // postLength(v) {
+      //   console.log('---------1')
+      //   console.log(v)
+      //   console.log('---------2')
+      // }
     },
     methods: {
       countDownChanged(dismissCountDown) {

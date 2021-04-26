@@ -6,8 +6,9 @@
  */
 
 export default {
-    list: [],
-    postTitle: null,
-    postThumbnail: null,
-  };
+  loading: false,
+  list: [],
+  postTitle: null,
+  postThumbnail: null,
+};
   

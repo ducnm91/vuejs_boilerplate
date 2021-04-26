@@ -8,8 +8,10 @@
 
 export const GET = 'GET';
 export const GET_POST = 'GET_POST';
+export const STATUS_LOADING = 'STATUS_LOADING';
 
 export default {
     GET,
-    GET_POST
+    GET_POST,
+    STATUS_LOADING
 };

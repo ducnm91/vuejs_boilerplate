@@ -6,7 +6,7 @@
  * post module.
  */
 
-import { GET, GET_POST } from './mutation-types';
+import { GET, GET_POST, STATUS_LOADING } from './mutation-types';
 
 /* eslint-disable no-param-reassign */
 export default {
@@ -16,5 +16,8 @@ export default {
   [GET_POST](state, post) {
     state.postTitle = post.postTitle;
     state.postThumbnail = post.postThumbnail;
-  }
+  },
+  [STATUS_LOADING](state, status) {
+    state.loading = status;
+  },
 };

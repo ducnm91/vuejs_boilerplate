@@ -6,4 +6,8 @@
  * post module.
  */
 
-export default {};
+export default {
+    postLength: state => {
+        return state.list.length
+    }
+};
