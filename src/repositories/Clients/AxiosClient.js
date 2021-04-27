@@ -1,6 +1,8 @@
 import axios from "axios";
-
-const baseDomain = "https://59ed7283ff7d5d00128e0864.mockapi.io";
+import config from "../../config/index"
+console.log('-----')
+console.log(config)
+const baseDomain = config.api;
 const baseURL = `${baseDomain}`; // Incase of /api/v1;
 
 
