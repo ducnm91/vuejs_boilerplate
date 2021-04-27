@@ -70,7 +70,6 @@
     },
     mounted() {
       this.getPosts()
-      console.log(process.env.NODE_ENV)
     },
     watch: {
       // postLength(v) {
