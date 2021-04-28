@@ -17,7 +17,6 @@ import i18n from './plugins/vue-i18n';
 import store from './store';
 
 
-
 new Vue({
   render: h => h(App),
   router,

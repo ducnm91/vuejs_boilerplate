@@ -28,7 +28,7 @@
 <script>
   import myMixin from '../../mixins/test';
   import { mapState, mapGetters } from 'vuex';
-
+  import {socketService} from '../../plugins/socketio'
   export default {
     mixins: [myMixin],
     data() {
@@ -70,6 +70,13 @@
     },
     mounted() {
       this.getPosts()
+      
+      const socket = socketService.connect()
+      console.log(socket)
+      socket.emit('BO_PRICE_SUBSCRIBE')
+      socket.on('BO_PRICE', (data) => {
+        console.log(data)
+      })
     },
     watch: {
       // postLength(v) {
