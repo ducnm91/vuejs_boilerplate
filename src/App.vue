@@ -1,18 +1,20 @@
 <template>
-  <div id="app">
-    <h1 class="text-center">Vue Boilerplate!</h1>
-    <Header />
-    <router-view></router-view>
-  </div>
+    <div id="app">
+        <h1 class="text-center">
+            Vue Boilerplate!
+        </h1>
+        <Header />
+        <router-view />
+    </div>
 </template>
 
 <script>
 import Header from './components/Common/Header'
 export default {
-  name: 'App',
-  components: {
-    Header
-  }
+    name: 'App',
+    components: {
+        Header
+    }
 }
 </script>
 

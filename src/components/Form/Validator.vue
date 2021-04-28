@@ -3,11 +3,24 @@
         <h3>Validate: </h3>
         <div class="row">
             <div class="col-6">
-                <input type="text" class="form-control" @keypress="validateInput" v-model="inputValue">
+                <input
+                    v-model="inputValue"
+                    type="text"
+                    class="form-control"
+                    @keypress="validateInput"
+                >
             </div>
             <div class="col-6">
-                <select class="form-control" v-model="selected" @change="changeRegex">
-                    <option v-for="(option, index) in options" :key="index" v-bind:value="option.value">
+                <select
+                    v-model="selected"
+                    class="form-control"
+                    @change="changeRegex"
+                >
+                    <option
+                        v-for="(option, index) in options"
+                        :key="index"
+                        :value="option.value"
+                    >
                         {{ option.text }}
                     </option>
                 </select>
@@ -42,7 +55,7 @@ export default {
             if (theEvent.type === 'paste') {
                 key = evt.clipboardData.getData('text/plain');
             } else {
-            // Handle key press
+                // Handle key press
                 var key = theEvent.keyCode || theEvent.which;
                 key = String.fromCharCode(key);
             }

@@ -6,7 +6,7 @@
     "serve": "set NODE_ENV=development && vue-cli-service serve",
     "prod": "set NODE_ENV=production && vue-cli-service serve",
     "build": "set NODE_ENV=production && vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "eslint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -26,7 +26,7 @@
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
+    "eslint": "^6.8.0",
     "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^5.0.0",
     "sass-loader": "^10.0.1",

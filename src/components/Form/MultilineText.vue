@@ -2,16 +2,23 @@
     <div class="input-text">
         <div class="row">
             <div class="col-6">
-                <pre v-highlightjs >
-                    <code class="html" v-html="plainHtml">
-
-                    </code>
+                <pre v-highlightjs>
+                    <code
+class="html"
+v-html="plainHtml"
+/>
                 </pre>
             </div>
             <div class="col-6 pt-4">
                 <span>Multiline message is:</span>
-                <p style="white-space: pre-line;">{{ message }}</p>
-                <textarea class="form-control" v-model="message" placeholder="add multiple lines"></textarea>
+                <p style="white-space: pre-line;">
+                    {{ message }}
+                </p>
+                <textarea
+                    v-model="message"
+                    class="form-control"
+                    placeholder="add multiple lines"
+                />
             </div>
         </div>
     </div>

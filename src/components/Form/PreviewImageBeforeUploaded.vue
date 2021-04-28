@@ -1,9 +1,16 @@
 <template>
     <div class="preview">
         <h3>Preview an image before uploaded:</h3>
-        <input type="file" @change="previewFiles">
+        <input
+            type="file"
+            @change="previewFiles"
+        >
         <div class="preview-img">
-            <img :src="sourceImg" class="img-fluid" alt="">
+            <img
+                :src="sourceImg"
+                class="img-fluid"
+                alt=""
+            >
         </div>
     </div>
 </template>

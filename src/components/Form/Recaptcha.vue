@@ -1,9 +1,22 @@
 <template>
     <div class="my-recaptcha">
-        <vue-recaptcha sitekey="6LeMYLEaAAAAAD3dig-SEysFuZcrbXGHu_atFdvb" :loadRecaptchaScript="true" ref="invisibleRecaptcha" @verify="onVerify" size="invisible">
-            <button class="btn btn-primary">Click me</button>
+        <vue-recaptcha
+            ref="invisibleRecaptcha"
+            sitekey="6LeMYLEaAAAAAD3dig-SEysFuZcrbXGHu_atFdvb"
+            :load-recaptcha-script="true"
+            size="invisible"
+            @verify="onVerify"
+        >
+            <button class="btn btn-primary">
+                Click me
+            </button>
         </vue-recaptcha>
-        <button class="btn btn-primary" @click="onSubmit">Click me outside</button>
+        <button
+            class="btn btn-primary"
+            @click="onSubmit"
+        >
+            Click me outside
+        </button>
     </div>
 </template>
 <script>
